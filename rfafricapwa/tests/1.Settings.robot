@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    ../resources/keywordlibrarycommon.robot
+Resource    ../resources/KeywordLibraryCommon.robot
 
 Suite Setup        Test Suite Setup Switch
 Test Setup         Test Setup
