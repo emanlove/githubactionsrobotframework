@@ -1,0 +1,24 @@
+name: Run Robot Framework Tests
+on:
+  workflow_dispatch:
+  
+jobs:
+    run_tests:
+        runs-on: ubuntu-latest
+        steps:
+        # checkout code from a repository
+        - uses: actions/checkout@v2
+        
+        # create folder for test reports
+        - name: Create folder for reports
+          run: mkdir reports
+          
+        # run Robot Framework tests inside Docker container
+        - name: Run Robot Framework Tests
+          run: |
+            docker run \
+              -v ${PWD}/reports:/opt/robotframework/reports:Z \
+              -v ${PWD}/rfafricapwa/tests:/opt/robotframework/tests:Z \
+              --user $(id -u):$(id -g) \
+              ppodgorsek/robot-framework:latest
+          
