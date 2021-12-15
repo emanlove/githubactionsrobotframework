@@ -19,6 +19,7 @@ jobs:
             docker run \
               -v ${PWD}/reports:/opt/robotframework/reports:Z \
               -v ${PWD}/rfafricapwa/tests:/opt/robotframework/tests:Z \
+              -v ${PWD}/rfafricapwa/resources:/opt/robotframework/resources:Z \
               --user $(id -u):$(id -g) \
               ppodgorsek/robot-framework:latest
           
